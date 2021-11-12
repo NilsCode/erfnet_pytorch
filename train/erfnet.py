@@ -121,7 +121,7 @@ class Decoder (nn.Module):
         self.layers.append(non_bottleneck_1d(16, 0, 1))
 
         self.output_conv = nn.ConvTranspose2d( 16, num_classes, 2, stride=2, padding=0, output_padding=0, bias=True)
-        self.output_conv_sig = nn.Sigmoid()
+        #self.output_conv_sig = nn.Sigmoid()
         
     def forward(self, input):
         output = input
@@ -130,7 +130,7 @@ class Decoder (nn.Module):
             output = layer(output)
 
         output = self.output_conv(output)
-        output = self.output_conv_sig(output)
+        #output = self.output_conv_sig(output)
         
         return output
 
